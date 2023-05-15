@@ -43,40 +43,26 @@
 	--color-nav-btn-hover: #8d73c2;
 
 	--color-note-list-title: #8f8f8f;
-
-	--background-note-item: #efeaff;
-	--border-note-item: 1px solid rgba(252, 205, 245, 0.025);
-	--color-note-item-title: #6d477a;
-	--color-note-item-body: #cb85c2;
-	--color-note-item-date: #cc9dcc;
-	--background-note-item-btn-action: #ffffff;
-	--color-note-item-btn-action: #bb85bb;
-	--color-note-item-btn-action-hover: #9b589b;
-	--background-note-item-btn-action-768px: #efeaff;
-
-	--color-note-detail-title: #80658a;
-	--color-note-detail-date: #bbb2dd;
-	--color-note-detail-body: #a397cc;
-
-	--background-action-btn-detailpage: #ad98d6;
-	--border-action-btn-detailpage: #ad98d6;
-	--border-right-action-btn-detailpage: #ad98d6;
-	--background-action-btn-detailpage-hover: #b6a4d8;
-	--border-action-btn-detailpage-hover: #b6a4d8;
 }
 
-[data-theme='dark'] {
-	--font-color: #9b9b9b;
-	--font-title: #e6edf3;
-	--background-color: #0d1117;
+@media (prefers-color-scheme: dark) {
+  .first-page p {
+    --font-color: #9b9b9b;
+  }
+
+  .bold {
+    --font-title: #e6edf3;
+  }
+
+  body, .note-app__nav {
+    --background-color: #0d1117;
+  }
+/*   
 	--background-btn: #313741;
-	/* --background-btn-register: #e6edf3; */
 	--font-color-btn-register: #e6edf3;
 	--border-btn-register: 1px solid rgba(243, 243, 243, 0.3);
 	--background-btn-register-hover: #313741;
-	/* --border-btn-register-hover: 1px solid #e5d9fa; */
 	--background-btn-login: #191d22;
-	/* --border-btn-login-hover: 1px solid #e5d9fa; */
 
 	--background-action-btn-firstpage: #313741;
 	--color-action-btn-firstpage: #c4c4c4;
@@ -105,27 +91,7 @@
 	--color-nav-btn: #c4c4c4;
 	--color-nav-btn-hover: #ffffff;
 
-	--color-note-list-title: #9b9b9b;
-
-	--background-note-item: #1d2229;
-	--border-note-item: 1px solid rgba(243, 243, 243, 0.3);
-	--color-note-item-title: #e6edf3;
-	--color-note-item-body: #a8a8a8;
-	--color-note-item-date: #8a8a8a;
-	--background-note-item-btn-action: #313741;
-	--color-note-item-btn-action: #c4c4c4;
-	--color-note-item-btn-action-hover: #ffffff;
-	--background-note-item-btn-action-768px: #1d2229;
-
-	--color-note-detail-title: #e6edf3;
-	--color-note-detail-date: #8a8a8a;
-	--color-note-detail-body: #a8a8a8;
-
-	--background-action-btn-detailpage: #434a53;
-	--border-action-btn-detailpage: rgba(243, 243, 243, 0.3);
-	--border-right-action-btn-detailpage: #434a53;
-	--background-action-btn-detailpage-hover: #50575f;
-	--border-action-btn-detailpage-hover: #997da5;
+	--color-note-list-title: #9b9b9b; */
 }
 
 * {
@@ -544,8 +510,7 @@ input:focus {
 .note-item {
 	margin: 42px 15px;
 	border-radius: 25px;
-	border: var(--border-note-item);
-	background-color: var(--background-note-item);
+	
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.22);
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.22);
 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.22);
@@ -575,7 +540,7 @@ input:focus {
 }
 
 .note-item__title {
-	color: var(--color-note-item-title);
+	color: #6d477a;
 	font-size: 30px;
 	font-weight: bold;
 	text-decoration: none;
@@ -584,7 +549,7 @@ input:focus {
 .note-item__body {
 	font-size: 18px;
 	font-weight: bold;
-	color: var(--color-note-item-body);
+	color: #cb85c2;
 }
 
 .note-item__action {
@@ -594,7 +559,7 @@ input:focus {
 
 .note-item__date {
 	font-size: 14px;
-	color: var(--color-note-item-date);
+	color: #cc9dcc;
 	font-weight: bold;
 	flex-basis: 85%;
 }
@@ -607,8 +572,7 @@ input:focus {
 .note-item__action a {
 	border: none;
 	border-radius: 25px 0 25px 0;
-	color: var(--color-note-item-btn-action);
-	background-color: var(--background-note-item-btn-action) !important;
+	color: #bb85bb;
 	text-align: right;
 	padding: 8px 9px 0 11px;
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -616,7 +580,7 @@ input:focus {
 }
 
 .note-item__action a:hover {
-	color: var(--color-note-item-btn-action-hover);
+	color: #9b589b;
 	/* background-color: #f0ecff; */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.22);
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.22);
@@ -627,7 +591,7 @@ input:focus {
 }
 
 .note-item__action a:focus {
-	color: var(--color-note-item-btn-action-hover);
+	color: #9b589b;
 	/* background-color: #f0ecff; */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.22);
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.22);
@@ -691,7 +655,7 @@ textarea:focus {
 .note-detail__title {
 	font-size: 30px;
 	font-weight: bold;
-	color: var(--color-note-detail-title);
+	color: #80658a;
 	/* color: #6d477a; */
 	margin: 3px 0 20px 0;
 }
@@ -699,7 +663,7 @@ textarea:focus {
 .note-detail__date {
 	font-size: 15px;
 	font-weight: bold;
-	color: var(--color-note-detail-date);
+	color: #bbb2dd;
 	/* color: #cc9dcc; */
 	/* color: rgb(56, 56, 56); */
 }
@@ -707,7 +671,7 @@ textarea:focus {
 .note-detail__body {
 	font-size: 20px;
 	font-weight: bold;
-	color: var(--color-note-detail-body);
+	color: #a397cc;
 	/* color: #cb85c2; */
 	margin-top: 35px;
 }
@@ -732,10 +696,8 @@ textarea:focus {
 	bottom: 0;
 	right: 0;
 	border-radius: 27px 0 0 0;
-	border: 1px solid var(--border-action-btn-detailpage);
-	border-right-color: var(--border-right-action-btn-detailpage);
-	border-bottom-color: var(--border-right-action-btn-detailpage);
-	background-color: var(--background-action-btn-detailpage);
+	border: 1px solid #ad98d6;
+	background-color: #ad98d6;
 	color: #fbf7ff;
 	padding: 12px 10px 1px 11px;
 	font-size: 38px;
@@ -752,19 +714,15 @@ textarea:focus {
 }
 
 .action-button button:focus {
-	background-color: var(--background-action-btn-detailpage-hover);
-	border: 1px solid var(--border-action-btn-detailpage-hover);
-	border-right-color: var(--border-right-action-btn-detailpage);
-	border-bottom-color: var(--border-right-action-btn-detailpage);
+	background-color: #b6a4d8;
+	border: 1px solid #b6a4d8;
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 	-webkit-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .action-button button:hover {
-	background-color: var(--background-action-btn-detailpage-hover);
-	border: 1px solid var(--border-action-btn-detailpage-hover);
-	border-right-color: var(--border-right-action-btn-detailpage);
-	border-bottom-color: var(--border-right-action-btn-detailpage);
+	background-color: #b6a4d8;
+	border: 1px solid #b6a4d8;
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 	-webkit-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }

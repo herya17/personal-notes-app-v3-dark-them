@@ -11,7 +11,7 @@ function NoteItem({ id, title, createdAt, body, color }) {
   }
 
   return (
-    <div className={`note-item purple ${color}`}>
+    <div className={`note-item ${color}`}>
       <div className='note-item__article'>
         <p className='note-item__title'>{title}</p>
         <p className='note-item__body'>{description}</p>

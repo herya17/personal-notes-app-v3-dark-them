@@ -29,7 +29,7 @@
 
 	.note-list {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 50% 50%;
 		margin: 35px 0;
 	}
 
@@ -50,6 +50,10 @@
 
 	.note-item__action {
 		padding: 0;
+	}
+
+	.note-item__action a {
+		background-color: var(--background-note-item-btn-action-768px) !important;
 	}
 
 	.note-item__action a:hover {
@@ -145,6 +149,12 @@
 		max-width: 360px;
 		display: block;
 		margin: 45px auto;
+	}
+}
+
+@media screen and (min-width: 1700px) {
+	.note-list {
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 }
 
