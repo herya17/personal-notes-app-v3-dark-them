@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from '../components/SearchBar';
 import NoteList from '../components/NoteList';
 import EmptyMessage from '../components/EmptyMessage';
+import Loader from '../components/Loader';
 import ActionButton from '../components/ActionButton';
 import { getActiveNotes } from '../utils/network-data';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -26,11 +27,15 @@ function HomePage() {
       setNotes(data);
     }
 
-    getData();
+    const emptyMessage = document.querySelector('.empty-message');
+    emptyMessage.style.display = 'none';
 
-    return () => {
-      setNotes(null);
-    }
+    const loader = document.querySelector('.loader');
+
+    setTimeout(() => {
+      getData();
+      loader.style.display = 'none';      
+    }, 300);
   }, []);
 
   const onKeywordChangeHandler = (keyword) => {
@@ -42,13 +47,10 @@ function HomePage() {
     note.title.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
   ));
 
-  if (notes === null) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <section>
       <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
+      <Loader />
         {
           filteredNotes.length > 0
             ? <NoteList notes={filteredNotes} />

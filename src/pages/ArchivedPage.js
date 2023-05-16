@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SearchBar from '../components/SearchBar';
+import Loader from '../components/Loader';
 import NoteList from '../components/NoteList';
 import EmptyMessage from '../components/EmptyMessage';
 import ActionButton from '../components/ActionButton';
@@ -24,7 +24,15 @@ function ArchivedPage() {
       setNotes(data);
     }
 
-    getData();
+    const emptyMessage = document.querySelector('.empty-message');
+    emptyMessage.style.display = 'none';
+
+    const loader = document.querySelector('.loader');
+
+    setTimeout(() => {
+      getData();
+      loader.style.display = 'none';      
+    }, 300);
   }, []);
 
   const onKeywordChangeHandler = (keyword) => {
@@ -39,6 +47,7 @@ function ArchivedPage() {
   return (
     <section>
       <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
+      <Loader />
         {
           filteredNotes.length > 0
             ? <NoteList notes={filteredNotes} />
