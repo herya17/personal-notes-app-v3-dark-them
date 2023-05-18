@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams, useNavigate } from 'react-router-dom';
 import NoteDetail from '../components/NoteDetail';
+import Loader from '../components/Loader'
 import EmptyMessage from '../components/EmptyMessage';
 import { getNote, deleteNote, archiveNote, unarchiveNote } from '../utils/network-data';
 import Swal from 'sweetalert2';
@@ -17,10 +18,13 @@ function DetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [notes, setNotes] = React.useState([]);
+  const [isLoading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     const getData = async (id) => {
+      setLoading(true);
       const { data } = await getNote(id);
+      setLoading(false);
       setNotes(data);
     }
 
@@ -69,6 +73,10 @@ function DetailPage() {
   const onUnarchiveNoteHandler = async (id) => {
     await unarchiveNote(id);
     navigate('/archived');
+  }
+
+  if (isLoading === true) {
+    return <Loader />;
   }
 
   if (notes === undefined || notes === null) {

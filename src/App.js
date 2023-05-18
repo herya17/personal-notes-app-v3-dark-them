@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import HomePage from './pages/HomePage';
+import HomePageWrapper from './pages/HomePageWrapper';
 import AddPage from './pages/AddPage';
-import ArchivedPage from './pages/ArchivedPage';
+import ArchivedPageWrapper from './pages/ArchivedPageWrapper';
 import DetailPage from './pages/DetailPage';
 import FirstPage from './pages/FirstPage';
 import RegisterPage from './pages/RegisterPage';
@@ -132,9 +132,9 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path='/' element={<HomePage />} />
+            <Route path='/' element={<HomePageWrapper />} />
             <Route path='/add' element={<AddPage />} />
-            <Route path='/archived' element={<ArchivedPage />} />
+            <Route path='/archived' element={<ArchivedPageWrapper />} />
             <Route path='/notes/:id' element={<DetailPage />} />
             <Route path='*' element={<NoPage />} />
           </Routes>
