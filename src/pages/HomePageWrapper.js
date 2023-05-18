@@ -23,8 +23,11 @@ function HomePageWrapper() {
     const getData = async () => {
       setLoading(true);
       const { data } = await getActiveNotes();
-      setLoading(false);
-      setNotes(data);
+
+      setTimeout(() => {
+        setLoading(false);
+        setNotes(data);
+      }, 250);
     }
 
     getData();

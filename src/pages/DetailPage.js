@@ -18,13 +18,10 @@ function DetailPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [notes, setNotes] = React.useState([]);
-  const [isLoading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     const getData = async (id) => {
-      setLoading(true);
       const { data } = await getNote(id);
-      setLoading(false);
       setNotes(data);
     }
 
@@ -73,10 +70,6 @@ function DetailPage() {
   const onUnarchiveNoteHandler = async (id) => {
     await unarchiveNote(id);
     navigate('/archived');
-  }
-
-  if (isLoading === true) {
-    return <Loader />;
   }
 
   if (notes === undefined || notes === null) {

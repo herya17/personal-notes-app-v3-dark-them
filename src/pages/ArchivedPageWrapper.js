@@ -18,8 +18,11 @@ function ArchivedPageWrapper() {
     const getData = async () => {
       setLoading(true);
       const { data } = await getArchivedNotes();
-      setLoading(false);
-      setNotes(data);
+
+      setTimeout(() => {
+        setLoading(false);
+        setNotes(data);
+      }, 250);
     }
 
     getData();

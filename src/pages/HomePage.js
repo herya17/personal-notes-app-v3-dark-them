@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Loader from '../components/Loader';
 import NoteList from '../components/NoteList';
 import EmptyMessage from '../components/EmptyMessage';
@@ -24,6 +25,11 @@ function HomePage({ isLoading, filteredNotes }) {
       }
     </>
   );
+}
+
+HomePage.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  filteredNotes: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default HomePage;
