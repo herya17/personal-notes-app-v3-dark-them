@@ -1,5 +1,3 @@
-#HeyCa!! resource
+#personal-notes-app-v3-dark-theme
 
-HeyCa!! dark theme mode and light theme mode
-
-https://heyca.netlify.app
+personal-notes-app-v3-dark-theme dark theme mode and light theme mode
